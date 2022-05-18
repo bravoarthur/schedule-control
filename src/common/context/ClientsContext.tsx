@@ -1,16 +1,22 @@
 import { createContext, ReactNode, useState } from "react";
+import { TypeClientsList } from "types/TypeClients";
 
 type ClientsContextProps = {
     children: ReactNode
 }
 
-export const ClientsContext = createContext({})
+interface ClientsListProps {
+    clientList: TypeClientsList
+}
+
+export const ClientsContext = createContext({} as ClientsListProps)
 
 export const ClientsProvider = ({children}: ClientsContextProps) => {
 
-    const [ClientsList, setClientsList] = useState([
+    const [clientList, setClientsList] = useState([
         {
             name: "Miller",
+            id: '0',
             area: "Avalon",
             address: "11 telegraph",
             interval: 30,
@@ -27,6 +33,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         },
         {
             name: "Karen",
+            id: '1',
             area: "Avalon",
             address: "11 telegraph",
             interval: 30,
@@ -43,6 +50,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         },
         {
             name: "Jason",
+            id: '2',
             area: "Avalon",
             address: "11 telegraph",
             interval: 30,
@@ -59,6 +67,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         },
         {
             name: "James",
+            id: '3',
             area: "Avalon",
             address: "11 telegraph",
             interval: 30,
@@ -75,6 +84,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         },
         {
             name: "Carol",
+            id: '4',
             area: "Manly",
             address: "14 warringah",
             interval: 15,
@@ -91,6 +101,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         },
         {
             name: "Mary",
+            id: '5',
             area: "Manly",
             address: "14 warringah",
             interval: 15,
@@ -107,6 +118,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         },
         {
             name: "Tony",
+            id: '6',
             area: "Manly",
             address: "14 warringah",
             interval: 15,
@@ -123,6 +135,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         },
         {
             name: "Isaac",
+            id: '7',
             area: "Manly",
             address: "14 warringah",
             interval: 15,
@@ -139,6 +152,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         },
         {
             name: "Sally",
+            id: '8',
             area: "Cromer",
             address: "145 Terry",
             interval: 45,
@@ -155,6 +169,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         },
         {
             name: "Cesare",
+            id: '9',
             area: "Cromer",
             address: "30 Victor rd",
             interval: 15,
@@ -171,6 +186,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         },
         {
             name: "7 howard st",
+            id: '10',
             area: "New Port",
             address: "14 warringah",
             interval: 15,
@@ -187,6 +203,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         },
         {
             name: "Geoff",
+            id: '11',
             area: "New Port",
             address: "14 warringah",
             interval: 15,
@@ -203,6 +220,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         },
         {
             name: "Ken",
+            id: '12',
             area: "New Port",
             address: "14 warringah",
             interval: 15,
@@ -219,6 +237,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         },
         {
             name: "Peter",
+            id: '13',
             area: "Manly",
             address: "12 Richmond",
             interval: 14,
@@ -237,7 +256,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
 
 
     return (
-        <ClientsContext.Provider value={ClientsList}>
+        <ClientsContext.Provider value={{clientList}}>
             {children}
         </ClientsContext.Provider>
     )

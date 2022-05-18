@@ -1,6 +1,8 @@
 import 'normalize.css';
 import 'index.css'
 import Head from 'next/head';
+import { AreaProvider } from 'common/context/AreaContext';
+import { ClientsProvider } from 'common/context/ClientsContext';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -11,8 +13,11 @@ function MyApp({ Component, pageProps }) {
         
         <link rel="icon" href="/favicon.png" />
       </Head>
-    
-      <Component {...pageProps} />
+      <AreaProvider>
+        <ClientsProvider>
+          <Component {...pageProps} />
+        </ClientsProvider>
+      </AreaProvider>
 
     </>
   )

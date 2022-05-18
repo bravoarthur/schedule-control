@@ -3,7 +3,14 @@ import Thead from "../Thead/Thead";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import EditIcon from '@mui/icons-material/Edit';
 
-function Table(props: TypeClientsList) {
+interface Props {
+    children: TypeClientsList
+}
+
+
+function Table({children}: Props) {
+
+    const list = children
     
 
     return ( 
@@ -11,10 +18,9 @@ function Table(props: TypeClientsList) {
         <table>
 
             <Thead/>
-
-            <body>
-                
-                {props.map(item => {
+            <tbody>
+                                
+                {list.map(item => {
 
                     return (
                         <tr key={item.id}>
@@ -51,13 +57,11 @@ function Table(props: TypeClientsList) {
                                 
                             </td>
 
-
-
                         </tr>
                     )
                 } )}
 
-            </body>
+            </tbody>
 
         </table>
 

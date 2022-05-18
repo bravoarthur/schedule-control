@@ -10,7 +10,7 @@ interface AreaListProps {
     areaList: TypeArea
 }
 
-export const AreaContext = createContext({})
+export const AreaContext = createContext({} as AreaListProps)
 
 export const AreaProvider = ({children}: AreaListContextProps) => {
 
@@ -23,7 +23,7 @@ export const AreaProvider = ({children}: AreaListContextProps) => {
 
     
     return (
-        <AreaContext.Provider value={areaList}>
+        <AreaContext.Provider value={{areaList}}>
             {children}
         </AreaContext.Provider>
     )
