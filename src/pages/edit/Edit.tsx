@@ -1,7 +1,7 @@
 import { Button, TextField, Typography } from "@mui/material";
 import { TClient } from "types/TypeClients";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import NextLink from 'next/link';
+/*import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useContext } from "react";
 import { ClientsContext } from "common/context/ClientsContext";
@@ -37,7 +37,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
     console.log('Contexto', context.params.id);
     const id = context.params.id; // da pagina que estamos
-    
+
     const post = clientList.posts.find((currentPost) => {
       if(currentPost.id === id) {
         return true;
@@ -86,7 +86,7 @@ export default function PostByIdScreen(props) {
         paddingHorizontal: '16px',
       }}
     >
-      {/* Cabeçalho */}
+      {}
       <Text
         variant="heading2"
         tag="h1"
@@ -98,7 +98,7 @@ export default function PostByIdScreen(props) {
         {post.date}
       </Text>
 
-      {/* Área de Conteudo */}
+     }
       <Box
         styleSheet={{
           flexDirection: 'column',
@@ -112,7 +112,7 @@ export default function PostByIdScreen(props) {
       </Box>
 
 
-      {/* Rodapé */}
+     
       <Box
         styleSheet={{
           marginTop: '16px',
@@ -147,12 +147,7 @@ export default function PostByIdScreen(props) {
 
 
 
-
-
-
-
-
-
+*/
 
 
 

@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { TypeArea } from "types/TypeArea";
 
 
@@ -14,12 +14,16 @@ export const AreaContext = createContext({} as AreaListProps)
 
 export const AreaProvider = ({children}: AreaListContextProps) => {
 
-    const [areaList, setAreaList] = useState([
-        "Avalon",
-        "Manly",
-        "Cromer",
-        "New Port"
-    ])
+    const [areaList, setAreaList] = useState([])
+
+    useEffect(() => {
+        fetch('/api/clients')
+        .then(async response => await response.json()
+        )
+        .then(data =>         
+        setAreaList(data.areas)
+        ) 
+    }, [])
 
     
     return (
