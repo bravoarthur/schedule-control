@@ -8,7 +8,8 @@ export type TClient = {
     address: string,
     interval: number,
     lastVisit: string,
-    visitList: Array<string>
+    visitList: Array<string>,
+    notes: string
 }
 
 export interface TypeClientsList extends Array<TClient> {}
