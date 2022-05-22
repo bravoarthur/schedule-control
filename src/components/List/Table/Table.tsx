@@ -1,4 +1,5 @@
 import { TypeClientsList } from "types/TypeClients";
+import NextLink from 'next/link'
 import Thead from "../Thead/Thead";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import EditIcon from '@mui/icons-material/Edit';
@@ -56,9 +57,12 @@ function Table({children}: Props) {
                             </td>
 
                             <td>
-                                {<EditIcon/>}
+                                <NextLink href={`/edit/${item.id}`} passHref>
+                                    <EditIcon/>
+                                </NextLink>
                                 
                             </td>
+                            
 
                         </tr>
                     )

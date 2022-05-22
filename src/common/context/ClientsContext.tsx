@@ -1,7 +1,7 @@
 import { error } from "console";
 import { useEffect } from "react";
 import { createContext, ReactNode, useState } from "react";
-import { TypeClientsList } from "types/TypeClients";
+import { TClient, TypeClientsList } from "types/TypeClients";
 
 type ClientsContextProps = {
     children: ReactNode
@@ -9,7 +9,9 @@ type ClientsContextProps = {
 
 interface ClientsListProps {
     clientList: TypeClientsList,
-    _handleNewVisit: (clientName: string, date?: string) => void
+    _handleNewVisit: (clientName: string, date?: string) => void,
+    handleClient: (newClient: TClient) => void,
+    deleteClient: (id: string) => void
 }
 
 export const ClientsContext = createContext({} as ClientsListProps)
@@ -42,18 +44,58 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
             body: JSON.stringify({update: newList[index]}),
         })
         .then(resp => resp.ok ? setClientList(newList) : console.log(resp.json()))
-        .catch( err => console.log(err))
-
-        
+        .catch( err => console.log(err))        
     };
 
+    function handleClient(newClient: TClient) {
+
+        const indexExist = clientList.findIndex(item => item.id === newClient.id)
+        
+        if(indexExist < 0) {
+            const newDate = _handleNewDate(newClient.lastVisit)
+            newClient.lastVisit = newDate
+            const newList = [...clientList, newClient]
+            
+            fetch('/api/clients', {
+                method: 'POST',
+                body: JSON.stringify({update: newClient}),
+            })
+            .then(resp => resp.ok ? setClientList(newList) : console.log(resp.json()))
+            .catch( err => console.log(err)) 
+            
+        } else {
+
+            const newList = clientList.map(item => item)
+            newList[indexExist]= newClient
+            fetch('/api/clients', {
+                method: 'POST',
+                body: JSON.stringify({update: newClient}),
+            })
+            .then(resp => resp.ok ? setClientList(newList) : console.log(resp.json()))
+            .catch( err => console.log(err)) 
+
+        }
+    }
+
+    function deleteClient(id: string) {
+
+        const newList = clientList.filter(item => item.id !== id)
+
+        fetch('/api/clients', {
+            method: 'POST',
+            body: JSON.stringify({delete: id}),
+        })
+        .then(resp => resp.ok ? setClientList(newList) : console.log(resp.json()))
+        .catch( err => console.log(err)) 
+
+    }
+
     return (
-        <ClientsContext.Provider value={{clientList, _handleNewVisit}}>
+        <ClientsContext.Provider value={{clientList, _handleNewVisit, handleClient, deleteClient}}>
             {children}
         </ClientsContext.Provider>
     )
 }  
-
 
 
 function _handleNewDate(date?: string) {
@@ -61,11 +103,10 @@ function _handleNewDate(date?: string) {
 
     if (date === null) {
         lDate = new Date();
-        console.log('sem data fornecida')
+        
     } else {
         lDate = new Date(date);
-        console.log(date)
-        console.log(lDate)
+        
     }
 
     //lDate.setDate(lDate.getDate())
