@@ -56,11 +56,12 @@
 
     &::-webkit-calendar-picker-indicator {
         text-align: center;
-        width: 10pt;
-        height: 12pt;
-        margin: 0;
-        background: url() no-repeat;
+        width: 17pt;
+        height: 17pt;
+        background: url('/calendar.png') no-repeat;
         cursor: pointer;
+        background-size: 100%;
+
     }
   }
   

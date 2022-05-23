@@ -132,13 +132,10 @@ function _handleIntervalClass(lastVisit, freq, intervalSelec) {
 
     const diff = today.getTime() - convDate.getTime(); 
     const days = Math.ceil(diff / (1000 * 60 * 60 * 24)); 
-    console.log(days);
-
+    
     if (days < -intervalSelec) {
-        console.log(intervalSelec);
         return styles.hideItem;
     } else if (days >= 0) {
-        console.log(intervalSelec);
         return "";
     }
 }
