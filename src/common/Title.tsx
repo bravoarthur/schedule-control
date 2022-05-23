@@ -6,7 +6,7 @@ function Title() {
 
     return ( 
 
-        <Typography variant="h2"> Scheduling Control </Typography>
+        <Typography variant="h3" alignSelf='center'> Scheduling Control </Typography>
 
     );
 }

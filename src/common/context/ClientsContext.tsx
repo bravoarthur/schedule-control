@@ -11,7 +11,9 @@ interface ClientsListProps {
     clientList: TypeClientsList,
     handleNewVisit: (clientName: string, date?: string) => void,
     handleClient: (newClient: TClient) => void,
-    deleteClient: (id: string) => void
+    deleteClient: (id: string) => void,
+    setCustomInterval: React.Dispatch<React.SetStateAction<number>>,
+    customInterval: number
 }
 
 export const ClientsContext = createContext({} as ClientsListProps)
@@ -19,6 +21,7 @@ export const ClientsContext = createContext({} as ClientsListProps)
 export const ClientsProvider = ({children}: ClientsContextProps) => {
 
     const [clientList, setClientList] = useState([])
+    const [customInterval, setCustomInterval] = useState(0)
     
     useEffect(() => {
         fetch('/api/clients')
@@ -80,7 +83,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
     }
 
     return (
-        <ClientsContext.Provider value={{clientList, handleNewVisit, handleClient, deleteClient}}>
+        <ClientsContext.Provider value={{clientList, handleNewVisit, handleClient, deleteClient, setCustomInterval, customInterval}}>
             {children}
         </ClientsContext.Provider>
     )

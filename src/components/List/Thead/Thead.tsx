@@ -1,4 +1,4 @@
-
+import styles from './Thead.module.scss'
 
 function Thead() {
 
@@ -6,7 +6,7 @@ function Thead() {
     return ( 
 
         <thead>
-                <tr>
+                <tr className={styles.trHead}>
                     <th>Client</th>
                     <th>Last Visit</th>
                     <th>Frequency</th>

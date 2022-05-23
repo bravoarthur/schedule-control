@@ -1,0 +1,66 @@
+
+.generalTable {
+
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  
+  td, th {
+
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+
+  }
+  tr:nth-child(even){background-color: #edf4ed;}
+  tr:hover {background-color: #ddd;}
+
+}
+
+.late {
+    color: rgb(206, 18, 18);
+    font-weight: 550;
+    .btnToday {
+        color: rgb(206, 18, 18, 0.6);
+    }
+}
+
+.week {
+    color: rgb(5, 143, 5);
+    font-weight: 600;
+    .btnToday {
+        color: rgb(5, 143, 5, 0.6);
+    }
+}
+.hideItem{    
+    display: none;    
+}
+
+.btnToday {
+    cursor: pointer;
+    color: #aaa;
+    font-size: 22pt;
+}
+
+.datePickerInput {
+    border: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::-webkit-datetime-edit {
+        display: none;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+        text-align: center;
+        width: 10pt;
+        height: 12pt;
+        margin: 0;
+        background: url() no-repeat;
+        cursor: pointer;
+    }
+  }
+  

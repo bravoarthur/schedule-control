@@ -1,27 +1,45 @@
-import { Container } from "@mui/system";
+import { Button, TextField } from "@mui/material";
+import Link from 'next/link'
 import { AreaContext } from "common/context/AreaContext";
 import { ClientsContext } from "common/context/ClientsContext";
 import { useContext } from "react";
 import Table from "../Table/Table";
+import styles from './GeneralList.module.scss'
 
 
 function GeneralList() {
 
     const {areaList} = useContext(AreaContext)
-    const {clientList} = useContext(ClientsContext)
+    const {clientList, setCustomInterval} = useContext(ClientsContext)
 
 
 
     return ( 
 
-        <Container>
+        <div className={styles.container}>
+            <div className={styles.btnInputDiv}>
+                <div className={styles.btnDiv}>
+                    <Link href={'addClient'}>
+                        <Button variant="outlined">Add Client</Button>
+                    </Link>
+                    <Link href={'editArea'}>
+                        <Button variant="outlined">Edit Area</Button>
+                    </Link>
+                </div>
+
+                <label className={styles.labelInterval}> Select Custom Interval
+                    <input type='number' min={0}defaultValue="0" className={styles.inputInterval} onChange={(event) => setCustomInterval(Number(event.target.value))}/>
+                </label>
+
+            </div>
+
             {areaList.map(item => {
                 const areaClients = clientList.filter(client => client.area === item)
                 
                 return(
 
                     <div key={item}>
-                        <h4>{item}</h4>
+                        <h4 className={styles.areaTittle}>{item}</h4>
 
                         <Table>
 
@@ -34,7 +52,7 @@ function GeneralList() {
                 )
 
             })}
-        </Container>
+        </div>
 
     );
 }
