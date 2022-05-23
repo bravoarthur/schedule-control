@@ -1,5 +1,5 @@
 import { TypeClientsList } from "types/TypeClients";
-import NextLink from 'next/link'
+import Link from 'next/link'
 import Thead from "../Thead/Thead";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import EditIcon from '@mui/icons-material/Edit';
@@ -14,7 +14,7 @@ interface Props {
 function Table({children}: Props) {
 
     const list = children
-    const {_handleNewVisit} = useContext(ClientsContext) 
+    const {handleNewVisit} = useContext(ClientsContext) 
     
 
     return ( 
@@ -47,19 +47,19 @@ function Table({children}: Props) {
                             </td>
 
                             <td>
-                                {<CheckCircleIcon onClick={() =>_handleNewVisit(item.name)}/>}
+                                {<CheckCircleIcon onClick={() =>handleNewVisit(item.name)}/>}
                                 
                             </td>
 
                             <td>
-                                {<input type='date' onChange={(event) => _handleNewVisit(item.name, event.target.value)}/>}
+                                {<input type='date' onChange={(event) => handleNewVisit(item.name, event.target.value)}/>}
                                 
                             </td>
 
                             <td>
-                                <NextLink href={`/edit/${item.id}`} passHref>
+                                <Link href={`/edit/${item.id}`} passHref>
                                     <EditIcon/>
-                                </NextLink>
+                                </Link>
                                 
                             </td>
                             

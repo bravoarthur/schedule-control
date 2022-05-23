@@ -7,7 +7,6 @@ import { useState } from "react";
 import { useContext } from "react";
 import { AreaContext } from "common/context/AreaContext";
 import { ClientsContext } from "common/context/ClientsContext";
-import { Router } from "@mui/icons-material";
 import { useRouter } from "next/router";
 
 export async function getStaticPaths() {
@@ -100,9 +99,6 @@ function EditPage(props: TClient ) {
       }
 
     }
-
-
-
 
     return ( 
 

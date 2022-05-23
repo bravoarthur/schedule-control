@@ -5,7 +5,7 @@ const fs = require('fs')
 const path = require('path')
 const dbPath = path.resolve( './src/pages/api/clientsarea.json') 
 
-export default async function handler (req, res) {
+export default async function handlerClients (req, res) {
 
     if (req.method === 'POST' && JSON.parse(req.body).update) {
        

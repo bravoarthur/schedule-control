@@ -9,7 +9,7 @@ type ClientsContextProps = {
 
 interface ClientsListProps {
     clientList: TypeClientsList,
-    _handleNewVisit: (clientName: string, date?: string) => void,
+    handleNewVisit: (clientName: string, date?: string) => void,
     handleClient: (newClient: TClient) => void,
     deleteClient: (id: string) => void
 }
@@ -28,8 +28,20 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         ) 
     }, [])
 
+
+
+    function _handleSave({info, data, list}) {
+
+        fetch('/api/clients', {
+            method: 'POST',
+            body: JSON.stringify({[info]: data}),
+        })
+        .then(resp => resp.ok ? setClientList(list) : console.log(resp.json()))
+        .catch( err => console.log(err)) 
+
+    }
    
-    const _handleNewVisit = (clientName: string, date?: string) => {
+    const handleNewVisit = (clientName: string, date?: string) => {
         
         const newList = clientList.map(item => item)
         const index = newList.findIndex(
@@ -38,13 +50,7 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
         newList[index].visitList.push(newList[index].lastVisit);
         const newDate = _handleNewDate(date ?? null);
         newList[index].lastVisit = newDate;
-
-        fetch('/api/clients', {
-            method: 'POST',
-            body: JSON.stringify({update: newList[index]}),
-        })
-        .then(resp => resp.ok ? setClientList(newList) : console.log(resp.json()))
-        .catch( err => console.log(err))        
+        _handleSave({info:'update', data: newList[index], list:newList})
     };
 
     function handleClient(newClient: TClient) {
@@ -55,43 +61,26 @@ export const ClientsProvider = ({children}: ClientsContextProps) => {
             const newDate = _handleNewDate(newClient.lastVisit)
             newClient.lastVisit = newDate
             const newList = [...clientList, newClient]
-            
-            fetch('/api/clients', {
-                method: 'POST',
-                body: JSON.stringify({update: newClient}),
-            })
-            .then(resp => resp.ok ? setClientList(newList) : console.log(resp.json()))
-            .catch( err => console.log(err)) 
+            _handleSave({info: 'update', data: newClient, list: newList})            
             
         } else {
 
             const newList = clientList.map(item => item)
             newList[indexExist]= newClient
-            fetch('/api/clients', {
-                method: 'POST',
-                body: JSON.stringify({update: newClient}),
-            })
-            .then(resp => resp.ok ? setClientList(newList) : console.log(resp.json()))
-            .catch( err => console.log(err)) 
-
+            _handleSave({info: 'update', data: newClient, list: newList})  
+            
         }
     }
-
+    
     function deleteClient(id: string) {
 
         const newList = clientList.filter(item => item.id !== id)
-
-        fetch('/api/clients', {
-            method: 'POST',
-            body: JSON.stringify({delete: id}),
-        })
-        .then(resp => resp.ok ? setClientList(newList) : console.log(resp.json()))
-        .catch( err => console.log(err)) 
+        _handleSave({info: 'delete', data: id, list: newList})
 
     }
 
     return (
-        <ClientsContext.Provider value={{clientList, _handleNewVisit, handleClient, deleteClient}}>
+        <ClientsContext.Provider value={{clientList, handleNewVisit, handleClient, deleteClient}}>
             {children}
         </ClientsContext.Provider>
     )

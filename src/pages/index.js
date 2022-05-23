@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import NextLink from 'next/link'
+import Link from 'next/link'
 import Title from "common/Title";
 import GeneralList from "components/List/GeneralList/GeneralList";
 
@@ -8,9 +8,12 @@ export default function Home() {
   return (
     <div>
       <Title/>
-      <NextLink href={'addClient/AddClient'}>
+      <Link href={'addClient'}>
         <Button variant="contained">Add Client</Button>
-      </NextLink>
+      </Link>
+      <Link href={'editArea'}>
+        <Button variant="contained">Edit Area</Button>
+      </Link>
       <GeneralList/>
     </div>
   )
