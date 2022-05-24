@@ -8,29 +8,34 @@
   
   td, th {
 
-    border: 1px solid #ddd;
+    border: 1px solid rgb(221, 221, 221);
     padding: 5px;
     text-align: center;
-
   }
-  tr:nth-child(even){background-color: #edf4ed;}
-  tr:hover {background-color: #ddd;}
+
+  tr {
+
+    transition: all 800ms;
+    &:nth-child(even){background-color: rgba(74, 136, 244, 0.116);} 
+    &:hover {background-color: rgba(1, 64, 181, 0.262);}        
+  }
+  
 
 }
 
 .late {
-    color: rgb(206, 18, 18);
+    color: rgba(231, 31, 31, 0.793);
     font-weight: 550;
     .btnToday {
-        color: rgb(206, 18, 18, 0.6);
+        color: rgba(218, 47, 47, 0.544);
     }
 }
 
 .week {
-    color: rgb(5, 143, 5);
+    color: rgba(2, 84, 215, 0.658);
     font-weight: 600;
     .btnToday {
-        color: rgb(5, 143, 5, 0.6);
+        color: rgba(58, 116, 208, 0.525);
     }
 }
 .hideItem{    
@@ -65,3 +70,8 @@
     }
   }
   
+  /*
+  rgb(5, 143, 5);
+
+  rgba(58, 116, 208, 0.845)
+  */

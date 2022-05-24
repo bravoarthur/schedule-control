@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { AreaContext } from "common/context/AreaContext";
 import { ClientsContext } from "common/context/ClientsContext";
 import { useContext } from "react";
-import Table from "../Table/Table";
+import Table from "../Table";
 import styles from './GeneralList.module.scss'
 
 
@@ -20,7 +20,7 @@ function GeneralList() {
             <div className={styles.btnInputDiv}>
                 <div className={styles.btnDiv}>
                     <Link href={'addClient'}>
-                        <Button variant="outlined">Add Client</Button>
+                        <Button color="primary" variant="outlined">Add Client</Button>
                     </Link>
                     <Link href={'editArea'}>
                         <Button variant="outlined">Edit Area</Button>

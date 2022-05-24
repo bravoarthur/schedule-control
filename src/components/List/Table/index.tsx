@@ -1,6 +1,6 @@
 import { TypeClientsList } from "types/TypeClients";
 import Link from 'next/link'
-import Thead from "../Thead/Thead";
+import Thead from "../Thead";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import EditIcon from '@mui/icons-material/Edit';
 import { useContext } from "react";

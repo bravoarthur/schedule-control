@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { useState } from "react";
 import NextLink from 'next/link';
 import { useRouter } from "next/router";
+import styles from './AddClient.module.scss'
 
 function AddClient() {
     const { clientList, handleClient } = useContext(ClientsContext);
@@ -34,10 +35,10 @@ function AddClient() {
     };
 
     return (
-        <div>
+        <div className={styles.addContainer}>
             <h3>Add new Client</h3>
 
-            <form
+            <form className={styles.addForm}
                 onSubmit={(event) => {
                     event.preventDefault();
                     if(error.isError) {
@@ -58,13 +59,7 @@ function AddClient() {
                     router.push('/')                    
                 }}
             >
-                <Box
-                    sx={{
-                        width: 300,
-                        height: 80,
-                        margin: "auto"
-                    }}
-                >
+                <div className={styles.divInput}>
                     <TextField
                         variant="outlined"
                         select
@@ -80,36 +75,24 @@ function AddClient() {
                             </MenuItem>
                         ))}
                     </TextField>
-                </Box>
+                </div>
 
-                <Box
-                    sx={{
-                        width: 300,
-                        height: 80,
-                        margin: "auto"
-                    }}
-                >
+                <div className={styles.divInput} >
                     <TextField
                         variant="outlined"
                         fullWidth
                         type="text" 
                         error={error.isError}
                         helperText={error.helperText}
-                        label="Name"                        
-                        value={name}                        
+                        label="Name"   
+                        value={name}                      
                         required
                         onChange={(event) => setName(event.target.value)}
                         onBlur={_handleClientValid}
                     />
-                </Box>
+                </div>
 
-                <Box
-                    sx={{
-                        width: 300,
-                        height: 80,
-                        margin: "auto"
-                    }}
-                >
+                <div className={styles.divInput} >
                     <TextField
                         variant="outlined"
                         type="text"
@@ -119,50 +102,36 @@ function AddClient() {
                         required
                         onChange={(event) => setAddress(event.target.value)}
                     />
-                </Box>
+                </div>
 
-                <Box
-                    sx={{
-                        width: 300,
-                        height: 80,
-                        margin: "auto"
-                    }}
-                > 
-                    <input
+                <div className={styles.divInput} > 
+                    <TextField
                         type="number"
-                        placeholder="Frequency *"
-                        min="1"
+                        variant="outlined"
+                        label="Frequency *"
+                        inputProps={{ min: 0 }}
                         required
+                        sx={{width: '30%'}}
                         value={interval ?? ''}
                         onChange={(event) => setInterval(Number(event.target.value))}
                     />
-                </Box>
+                
 
-                <Box
-                    sx={{
-                        width: 300,
-                        height: 80,
-                        margin: "auto"
-                    }}
-                >
+                
                     <TextField
                         variant="outlined"
                         type="date"
                         fullWidth
-                        placeholder="dd-mm-yyyy"
+                        label='Last/First Visit'
+                        InputLabelProps={{ shrink: true }}
                         required
+                        sx={{width: '30%'}}
                         value={date}
                         onChange={(event) => setDate(event.target.value)}
                     />
-                </Box>
+                </div>
 
-                <Box
-                    sx={{
-                        width: 300,
-                        height: 120,
-                        margin: "auto"
-                    }}
-                >
+                <div className={styles.divInput} >
                     <TextField
                         variant="outlined"
                         type="text"
@@ -174,18 +143,18 @@ function AddClient() {
                         label="Notes"
                         onChange={(event) => setNotes(event.target.value)}
                     />
-                </Box>
+                </div>
 
-                <Box> 
-                    <Button variant="outlined" type="submit">Add Client</Button>
-                </Box>
+                <div className={styles.divInput}> 
+                    <Button variant="contained" type="submit">Add Client</Button>
+                </div>
             </form>
 
-            <Box>
+            <div className={styles.buttonHome}>
                 <NextLink href={'/'} passHref> 
-                    <Button>Back home</Button>
+                    <Button variant="outlined">Back home</Button>
                 </NextLink> 
-            </Box>
+            </div>
         </div>
     )
 }

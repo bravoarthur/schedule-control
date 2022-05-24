@@ -3,6 +3,7 @@ import 'index.css'
 import Head from 'next/head';
 import { AreaProvider } from 'common/context/AreaContext';
 import { ClientsProvider } from 'common/context/ClientsContext';
+import Title from 'common/Title';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -15,6 +16,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <AreaProvider>
         <ClientsProvider>
+          <Title/>
           <Component {...pageProps} />
         </ClientsProvider>
       </AreaProvider>

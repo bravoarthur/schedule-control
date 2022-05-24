@@ -1,0 +1,34 @@
+
+
+.addContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+    
+    h3 {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+        color: rgb(14, 103, 192);
+        font-size: 20px;
+       }
+}
+
+.addForm{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+
+}
+
+.divInput {
+    display: flex;
+    min-width: 600px;
+    justify-content: space-around;
+}
+
+.buttonHome {
+    display: flex;
+    margin-top: 22px;
+}
