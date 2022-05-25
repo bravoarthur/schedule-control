@@ -8,6 +8,8 @@ import { useContext } from "react";
 import { AreaContext } from "common/context/AreaContext";
 import { ClientsContext } from "common/context/ClientsContext";
 import { useRouter } from "next/router";
+import style from './EditPage.module.scss'
+
 
 export async function getStaticPaths() {
         
@@ -102,22 +104,22 @@ function EditPage(props: TClient ) {
 
     return ( 
 
-        <>
-            <Typography variant="h5"> Edit Client</Typography>
+        <div className={style.editContainer}>
+            <h3> Edit Client</h3>
             
-            <div style={{'display': 'flex'}}>
+            <div className={style.divInput}>
 
-                <h3>Name</h3>
+                <h4>Name:</h4>
                     
-                <TextField label='Name' value={editedName} onChange={(event) => setEditedName(event.target.value)}/>               
+                <TextField label='Name' sx={{width: '60%'}} value={editedName} onChange={(event) => setEditedName(event.target.value)}/>               
 
             </div>
 
-            <div style={{'display': 'flex'}}>
+            <div className={style.divInput}>
 
-                <h3>Area</h3>
+                <h4>Area:</h4>
                 
-                <TextField select label='Area' value={editedArea} onChange={(event) => setEditedArea(event.target.value)}>
+                <TextField select sx={{width: '60%'}} label='Area' value={editedArea} onChange={(event) => setEditedArea(event.target.value)}>
 
                     {areaList.map(item => (                             
                       <MenuItem value={item} key={item}>
@@ -128,29 +130,29 @@ function EditPage(props: TClient ) {
                 
             </div>
 
-            <div style={{'display': 'flex'}}>
+            <div className={style.divInput}>
 
-                <h3>Address</h3>
+                <h4>Address:</h4>
                 
-                <TextField label='Address' value={editedAddress} onChange={(event) => setEditedAddress(event.target.value)}/>
+                <TextField label='Address' sx={{width: '60%'}} value={editedAddress} onChange={(event) => setEditedAddress(event.target.value)}/>
 
             </div>
 
-            <div style={{'display': 'flex'}}>
+            <div className={style.divInput}>
 
-                <h3>Frequency</h3>
+                <h4>Frequency:</h4>
                 
-                <TextField label='Frequency' type='number' value={editedInterval} inputProps={{ min: 0 }} onChange={(event) => setEditedInterval(Number(event.target.value))}/>
+                <TextField label='Frequency' sx={{width: '60%'}} type='number' value={editedInterval} inputProps={{ min: 0 }} onChange={(event) => setEditedInterval(Number(event.target.value))}/>
 
             </div>
 
-            <div style={{'display': 'flex'}}>
-                <h3>Last Visit: </h3>
-                <h3>{lastVisit}</h3>                          
+            <div className={style.divLastVisit}>
+                <h4>Last Visit: </h4>
+                <h4>{lastVisit}</h4>                          
             </div>     
 
 
-            <div>
+            <div className={style.divNotes}>
                 <h4>Notes</h4>
                 <TextField type="text"
                     multiline
@@ -164,20 +166,20 @@ function EditPage(props: TClient ) {
             </div>
 
 
-            <div>
-                <Button onClick={_handleSaveClient}>Save Changes</Button>
+            <div className={style.divButton}>
+                <Button variant="contained" sx={{width: '150px', borderRadius: '12px'}} onClick={_handleSaveClient}>Save Changes</Button>
 
                 <NextLink passHref href='/'>
-                  <Button>Home</Button>
+                  <Button variant="outlined" sx={{width: '150px', height: '40px', borderRadius: '8px', ":hover": {backgroundColor: 'rgb(128 173 217 / 14%)'}}}>Home</Button>
                 </NextLink> 
 
-                <Button onClick={_handleDeleteClient}>Delete Client</Button>
+                <Button sx={{width: '150px', backgroundColor: '#f50057', borderRadius: '12px'}} variant="contained" color="error" onClick={_handleDeleteClient}>Delete Client</Button>
             </div>
 
             <div>
-                <Typography variant="h4">Visit List</Typography>
+                <h3>Visit List</h3>
 
-                <table>
+                <table className={style.visitTable}>
                     <thead>
                         <tr>
                             <th>Date</th>
@@ -189,15 +191,16 @@ function EditPage(props: TClient ) {
                             return(
                                 <tr key={index}>
                                     <td>{item}</td>
-                                    <td><DeleteForeverIcon onClick={() => _handleDeleteVisit(index)}/></td>
+                                    <td><DeleteForeverIcon className={style.btnDelete} onClick={() => _handleDeleteVisit(index)}/></td>
                                 </tr>
                             )
                         })}
+                        
                     </tbody>
                 </table>
             </div>
         
-        </>
+        </div>
 
     )
 }

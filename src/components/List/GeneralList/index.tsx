@@ -44,14 +44,14 @@ function GeneralList() {
                         <Table>
 
                             {areaClients}
-
+                            
                         </Table>
                         
-
                     </div>
                 )
 
             })}
+            
         </div>
 
     );
