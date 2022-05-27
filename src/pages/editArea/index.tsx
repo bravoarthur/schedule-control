@@ -80,7 +80,7 @@ function EditAreas() {
                         <tr>
                             <th className={style.tdCenterPosition}>Position</th>
                             <th>Name</th>
-                            <th>Delete</th>
+                            <th className={style.tdCenterPosition}>Delete</th>
                             <th>Change view Order</th>
                         </tr>
                     </thead>
@@ -92,7 +92,7 @@ function EditAreas() {
                                     <td className={style.tdCenterPosition}> {index + 1}</td>
                                     <td> {item}</td>
                                     <td className={style.tdCenterPosition}>
-                                        <DeleteForever
+                                        <DeleteForever className={style.btnDelete}
                                          onClick={()=> _handleDeleteArea(item)}  
                                         >
                                             Delete Area
