@@ -3,9 +3,12 @@ import Link from 'next/link'
 import Thead from "../Thead";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import EditIcon from '@mui/icons-material/Edit';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ClientsContext } from "common/context/ClientsContext";
 import styles from './Table.module.scss'
+import DatePicker from "react-datepicker"
+import 'react-datepicker/dist/react-datepicker.css'
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 
 interface Props {
     children: TypeClientsList
@@ -16,9 +19,11 @@ function Table({children}: Props) {
 
     const list = children
     const {handleNewVisit, customInterval} = useContext(ClientsContext) 
-    
+    const [startDate, setStartDate] = useState(new Date())
 
     return ( 
+
+        
 
         <table className={styles.generalTable}>
 
@@ -48,12 +53,14 @@ function Table({children}: Props) {
                             </td>
 
                             <td>
-                                {<CheckCircleIcon className={styles.btnToday} onClick={() =>handleNewVisit(item.name)}/>}
+                                {<CheckCircleIcon className={styles.btnToday} onClick={() =>handleNewVisit(item.name)}/>}                  
                                 
                             </td>
 
                             <td>
-                                {<input type='date' className={styles.datePickerInput} onChange={(event) => handleNewVisit(item.name, event.target.value)}/>}
+                                                                 
+                                <DatePicker customInput={<CalendarMonthOutlinedIcon/>} className={styles.btnToday} selected={startDate} onChange={(date)=> handleNewVisit(item.name, date.toString())}>
+                                </DatePicker>                                
                                 
                             </td>
 

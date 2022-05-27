@@ -146,13 +146,13 @@ function AddClient() {
                 </div>
 
                 <div className={styles.divInput}> 
-                    <Button variant="contained" type="submit">Add Client</Button>
+                    <Button variant="contained" type="submit" sx={{borderRadius: '8px'}}>Add Client</Button>
                 </div>
             </form>
 
             <div className={styles.buttonHome}>
                 <NextLink href={'/'} passHref> 
-                    <Button variant="outlined">Back home</Button>
+                    <Button sx={{borderRadius: '8px', ":hover": {backgroundColor: 'rgb(128 173 217 / 14%)'}}} variant="outlined">Back home</Button>
                 </NextLink> 
             </div>
         </div>

@@ -1,9 +1,11 @@
 import DeleteForever from "@mui/icons-material/DeleteForever";
-import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import { Button, FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import { AreaContext } from "common/context/AreaContext";
 import { ClientsContext } from "common/context/ClientsContext";
 import { useContext, useState } from "react";
 import NextLink from 'next/link'
+import style from './EditArea.module.scss'
+
 
 function EditAreas() {
 
@@ -55,25 +57,28 @@ function EditAreas() {
 
     return (
 
-        <div>
-            <div>
+        <div className={style.areaContainer}>
+            <div className={style.addArea}>
                 <TextField
+                    className="includeInput"
                     variant="outlined"
                     label="New Area"
+                    sx={{width: '40%'}}
                     error={error.isError}
                     helperText={error.helperText}
                     type="text" 
                     value={newAreaInput}
                     onChange={(event) => _handleInput(event.target.value)}                  
                 />
-                <button disabled={error.isError ? true : false} onClick={_handleAddArea}>Include New area</button>
+                
+                <Button variant="contained" sx={{width: '20%', fontSize:'12px', height: '40px', borderRadius: '8px'}} disabled={error.isError ? true : false} onClick={_handleAddArea}>Add New area</Button>
             </div>
 
-            <div>
-                <table>
+            <div className={style.position}>
+                <table className={style.areaTable} >
                     <thead>
                         <tr>
-                            <th className="tdPosition">Position</th>
+                            <th className={style.tdCenterPosition}>Position</th>
                             <th>Name</th>
                             <th>Delete</th>
                             <th>Change view Order</th>
@@ -83,10 +88,10 @@ function EditAreas() {
                     <tbody>
                         {areaList.map((item, index) => {
                             return (
-                                <tr key={item} className="trArea">
-                                    <td className="tdPosition"> {index + 1}</td>
+                                <tr key={item}>
+                                    <td className={style.tdCenterPosition}> {index + 1}</td>
                                     <td> {item}</td>
-                                    <td>
+                                    <td className={style.tdCenterPosition}>
                                         <DeleteForever
                                          onClick={()=> _handleDeleteArea(item)}  
                                         >
@@ -94,11 +99,13 @@ function EditAreas() {
                                         </DeleteForever>
                                     </td>
                                     <td>
-                                        <FormControl fullWidth>
-                                            <InputLabel id="label-select">Position</InputLabel>
+                                        <FormControl sx={{height: '50px', padding: '3px 0px'}}>
+                                            <InputLabel  id="label-select">Position</InputLabel>
 
                                             <Select     
-                                            labelId="label-select" label='Position' fullWidth value=''             
+                                            labelId="label-select" label='Position' 
+                                            value=''      
+                                            sx={{width: '105px', height: '100px'}} 
                                             onChange={(event) => _handleViewOrder(event.target.value, item, event)}>
 
                                                 {areaList.map((it, listIndex) => (                            
@@ -118,9 +125,9 @@ function EditAreas() {
                 </table>
             </div>
             <NextLink href={'/'}>
-                <button className="btnBackHome">
+                <Button sx={{width: '150px', height: '40px', borderRadius: '8px', ":hover": {backgroundColor: 'rgb(128 173 217 / 14%)'}}} variant="outlined" className={style.btnBackHome}>
                     Back Home
-                </button>
+                </Button>
             </NextLink>          
         </div>
     );

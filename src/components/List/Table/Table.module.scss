@@ -15,7 +15,7 @@
 
   tr {
 
-    transition: all 800ms;
+    transition: background-color 700ms;
     &:nth-child(even){background-color: rgba(74, 136, 244, 0.116);} 
     &:hover {background-color: rgba(1, 64, 181, 0.262);}        
   }
@@ -46,9 +46,16 @@
     cursor: pointer;
     color: #aaa;
     font-size: 22pt;
-}
+} 
 
-.datePickerInput {
+
+  /*
+  rgb(5, 143, 5);
+
+  rgba(58, 116, 208, 0.845)
+  
+  
+  .datePickerInput {
     border: none;
 
     &:focus {
@@ -68,10 +75,19 @@
         background-size: 100%;
 
     }
-  }
-  
-  /*
-  rgb(5, 143, 5);
 
-  rgba(58, 116, 208, 0.845)
+     width: 22px;
+    height: 22px;
+    border-color: rgba(255, 255, 255, 0);
+    background: url('/calendar.png') no-repeat;
+    background-size: 26px;
+    cursor: pointer;
+    font-size: 0.01pt;    
+    margin-bottom: 5px;
+    &:focus-visible{
+        border: none;
+        outline: none;
+        height: 26px;
+               
+    }
   */
