@@ -5,6 +5,10 @@ import { ClientsContext } from "common/context/ClientsContext";
 import { useContext, useState } from "react";
 import NextLink from 'next/link'
 import style from './EditArea.module.scss'
+import { height, sizeHeight } from "@mui/system";
+import { Height } from "@mui/icons-material";
+
+
 
 
 function EditAreas() {
@@ -60,9 +64,9 @@ function EditAreas() {
         <div className={style.areaContainer}>
             <div className={style.addArea}>
                 <TextField
-                    className="includeInput"
+                    className={style.textfield}
                     variant="outlined"
-                    label="New Area"
+                    label="New Area"  
                     sx={{width: '40%'}}
                     error={error.isError}
                     helperText={error.helperText}
@@ -71,7 +75,7 @@ function EditAreas() {
                     onChange={(event) => _handleInput(event.target.value)}                  
                 />
                 
-                <Button variant="contained" sx={{width: '20%', fontSize:'12px', height: '40px', borderRadius: '8px'}} disabled={error.isError ? true : false} onClick={_handleAddArea}>Add New area</Button>
+                <Button variant="contained" sx={{width: ['80px', '80px', '20%'], fontSize: [6, 6, 12], height: ['22px','22px','40px'], borderRadius: '8px'}} disabled={error.isError ? true : false} onClick={_handleAddArea}>Add New area</Button>
             </div>
 
             <div className={style.position}>
@@ -79,7 +83,7 @@ function EditAreas() {
                     <thead>
                         <tr>
                             <th className={style.tdCenterPosition}>Position</th>
-                            <th>Name</th>
+                            <th className={style.name}>Name</th>
                             <th className={style.tdCenterPosition}>Delete</th>
                             <th>Change view Order</th>
                         </tr>
@@ -99,13 +103,15 @@ function EditAreas() {
                                         </DeleteForever>
                                     </td>
                                     <td>
-                                        <FormControl sx={{height: '50px', padding: '3px 0px'}}>
-                                            <InputLabel  id="label-select">Position</InputLabel>
+                                        <FormControl   sx={{height: '30px', marginBottom: '15px', '.MuiInputLabel-shrink': {transform: 'translate(14px, -2px) scale(0.75)'}}}>
 
+                                            <InputLabel sx={{height: '30px', top: 2, fontSize: '0.8em', }}  
+                                            id="label-select">Position</InputLabel>
+                                   
                                             <Select     
                                             labelId="label-select" label='Position' 
                                             value=''      
-                                            sx={{width: '105px', height: '100px'}} 
+                                            sx={{width: '105px', height:'40px', fontSize: '15px', top: 5}} 
                                             onChange={(event) => _handleViewOrder(event.target.value, item, event)}>
 
                                                 {areaList.map((it, listIndex) => (                            
@@ -125,7 +131,7 @@ function EditAreas() {
                 </table>
             </div>
             <NextLink href={'/'}>
-                <Button sx={{width: '150px', height: '40px', borderRadius: '8px', ":hover": {backgroundColor: 'rgb(128 173 217 / 14%)'}}} variant="outlined" className={style.btnBackHome}>
+                <Button sx={{width: ['100px', '100px', '150px'], fontSize: [10, 10, 15], height: ['30px','30px','40px'], borderRadius: '8px', ":hover": {backgroundColor: 'rgb(128 173 217 / 14%)'}}} variant="outlined" className={style.btnBackHome}>
                     Back Home
                 </Button>
             </NextLink>          
@@ -134,3 +140,7 @@ function EditAreas() {
 }
 
 export default EditAreas;
+
+/*
+":focus": {transform: 'translate(14px, -3px) scale(0.75)'}}
+*/

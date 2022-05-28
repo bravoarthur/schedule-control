@@ -10,12 +10,9 @@ Geocode.setLocationType("ROOFTOP");
 
 
 async function addressAPI(address) {
-
-    
       
       return await Geocode.fromAddress(address).then(
-        (response) => {
-            console.log(address)            
+        (response) => {                      
           const { lat, lng } = response.results[0].geometry.location;
           return {lat: lat, lng: lng};
         },

@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Button} from "@mui/material";
 import Link from 'next/link'
 import { AreaContext } from "common/context/AreaContext";
 import { ClientsContext } from "common/context/ClientsContext";
@@ -39,7 +39,12 @@ function GeneralList() {
                 return(
 
                     <div key={item}>
-                        <h4 className={styles.areaTittle}>{item}</h4>
+
+                        <Link href={`area/${item}`}>
+                            <h4 className={styles.areaTittle}>
+                                {item}
+                            </h4>
+                        </Link>
 
                         <Table>
 

@@ -1,10 +1,20 @@
+@import 'styles/var';
+@import 'styles/breakpoints';
+
 .areaContainer {
 
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 1000px;
-    margin: auto;    
+    margin: auto;  
+    
+    @media (max-width: $mobile) {
+
+        max-width: 500px;
+               
+    }
+    
 }
 
 .addArea {
@@ -42,18 +52,94 @@
         text-align: left;
     }
 
+    .name{
+        min-width: 50px;
+    }
+
     .tdCenterPosition {
         text-align: center;
         padding: 0px 20px;
     }
     .btnDelete {
         cursor: pointer;
-        color: #aaa;
+        color: $tableBtn;
         font-size: 22pt;
     } 
+
+    @media (max-width: $mobile) {
+        
+        td, th {
+            font-size: 12px;
+        }
+        .btnDelete {
+            
+            font-size: 17pt;
+        } 
+        
+    }
+
+    /*@media (max-width: $desktop_xsm) {
+        
+        tr {
+            height: 25px;
+            padding: 0px 10px;
+            font-size: 10px;
+        }
+        label {
+            height: 36px;
+            top: -13px;
+            font-size: 0.8em;
+        }
+        label[data-shrink="true"] {
+            top: 0
+          }
+    }*/
+
+
+
+
+
 }
 
 .btnBackHome {
     margin: 40px 0px;
+}
+
+.textfield {
+
+    @media (max-width: $mobile) {
+        
+        input {
+            height: 25px;
+            padding: 0px 10px;
+            font-size: 10px;
+        }
+        label {
+            height: 36px;
+            top: -13px;
+            font-size: 0.8em;
+        }
+        label[data-shrink="true"] {
+            top: 0
+          }
+    }
+
+    @media (max-width: $desktop_xsm) {
+        
+        input {
+            height: 25px;
+            padding: 0px 10px;
+            font-size: 10px;
+        }
+        label {
+            height: 36px;
+            top: -13px;
+            font-size: 0.8em;
+        }
+        label[data-shrink="true"] {
+            top: 0
+          }
+    }
+    
 }
 
