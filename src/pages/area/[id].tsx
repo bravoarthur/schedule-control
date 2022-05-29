@@ -35,8 +35,8 @@ export async function getStaticProps(context) {
 
 
 const containerStyle = {
-  width: '400px',
-  height: '400px',
+  width: '80%',
+  height: '100%',
   'margin-bottom': '50px',
 };
 

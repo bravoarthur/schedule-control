@@ -20,10 +20,10 @@ function GeneralList() {
             <div className={styles.btnInputDiv}>
                 <div className={styles.btnDiv}>
                     <Link href={'addClient'}>
-                        <Button color="primary" variant="outlined">Add Client</Button>
+                        <Button className={styles.btn} color="primary" sx={{ borderRadius: '6px', ":hover": {backgroundColor: 'rgb(128 173 217 / 14%)'}}} variant="outlined">Add Client</Button>
                     </Link>
                     <Link href={'editArea'}>
-                        <Button variant="outlined">Edit Area</Button>
+                        <Button className={styles.btn} variant="outlined" sx={{ borderRadius: '6px', ":hover": {backgroundColor: 'rgb(128 173 217 / 14%)'}}}>Edit Area</Button>
                     </Link>
                 </div>
 

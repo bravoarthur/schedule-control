@@ -1,3 +1,5 @@
+@import 'styles/var';
+@import 'styles/breakpoints';
 
 .generalTable {
 
@@ -20,8 +22,21 @@
     &:hover {background-color: rgba(1, 64, 181, 0.262);}        
   }
   
+    @media (max-width: $desktop_xsm) {
+          
+        td, th {
+            font-size: 12px;
+        }        
+    }
 
+    @media (max-width: $mobile) {
+          
+        td, th {
+            font-size: 8px;
+        }                
+    }   
 }
+
 
 .late {
     color: rgba(231, 31, 31, 0.793);
@@ -46,7 +61,21 @@
     cursor: pointer;
     color: #aaa;
     font-size: 22pt;
+
+    @media (max-width: $desktop_xsm) {
+        font-size: 18pt;
+                   
+    }
+
+    @media (max-width: $mobile) {
+        font-size: 12pt;
+                
+    }   
 } 
+
+
+
+
 
 
   /*

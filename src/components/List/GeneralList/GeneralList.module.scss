@@ -1,4 +1,5 @@
-
+@import 'styles/var';
+@import 'styles/breakpoints';
 
 .container{
     display: flex;
@@ -20,11 +21,18 @@
     text-indent: 10px;
     width: 65px;
     margin-left: 10px;
+
+
+    @media (max-width: $mobile) {        
+        
+        font-size: 10px;
+        height: 30px;  
+        width: 30px;                    
+    }       
           
     &:focus {
         border: 3px solid #3f51b5;
-        outline: none;
-       
+        outline: none;               
     };
 }
 
@@ -33,20 +41,40 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
     font-weight: 600;
     color: #3f51b5;
+
+    @media (max-width: $mobile) {   
+        font-size: 9px;
+                        
+    }   
 }
 
 .btnInputDiv {
 
     display: flex;
     justify-content: space-between;
-    margin: 20px 0;
+    margin: 20px 0;    
+
+    @media (max-width: $mobile) {        
+                      
+    }       
 
 }
 
 .btnDiv{
     display: flex;
-    width: 250px;
+    width: 23%;
     justify-content: space-between;
+
+    @media (max-width: $desktop_md) { 
+        width: 31%;  
+    }    
+    @media (max-width: $desktop_xsm) { 
+        width: 38%; 
+    }        
+    @media (max-width: $mobile) { 
+        width: 30%;      
+                      
+    }    
 }
 
 .areaTittle{
@@ -55,4 +83,47 @@
     margin-left: 5px;
     font-size: 17px;
     cursor: pointer;
+
+    @media (max-width: $desktop_xsm) {         
+        
+        font-size: 15px;             
+    }
+
+    @media (max-width: $mobile) {        
+        
+        font-size: 12px;                      
+    }       
 }
+
+.btn {
+    margin-right: 20px;
+
+    @media (max-width: $desktop_xsm) {         
+        
+        font-size: 12px;                     
+    }
+
+    @media (max-width: $mobile) {        
+        
+        font-size: 7px;
+        font-weight: 700;
+        width: 40px;   
+        padding: 0; 
+        height: 35px;                  
+    }       
+}
+
+/*
+ @media (max-width: $desktop_xsm) {
+          
+        td, th {
+            font-size: 12px;
+        }        
+    }
+
+    @media (max-width: $mobile) {
+          
+        td, th {
+            font-size: 8px;
+        }                
+    }       */
