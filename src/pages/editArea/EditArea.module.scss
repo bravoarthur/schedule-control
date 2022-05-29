@@ -1,20 +1,25 @@
-@import 'styles/var';
-@import 'styles/breakpoints';
+@import "styles/var";
+@import "styles/breakpoints";
 
 .areaContainer {
-
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 1000px;
-    margin: auto;  
-    
-    @media (max-width: $mobile) {
+    margin: auto;
 
-        max-width: 500px;
-               
+    h3 {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode";
+        color: $title;
+        font-size: 20px;
     }
-    
+
+    @media (max-width: $mobile) {
+        max-width: 500px;
+        h3 {
+            font-size: 14px;
+        }
+    }
 }
 
 .addArea {
@@ -24,22 +29,18 @@
     width: 70%;
     justify-content: center;
     align-items: center;
-
 }
 
 .position {
-
     display: flex;
     margin-top: 30px;
     width: 70%;
     justify-content: center;
     align-items: center;
-
 }
 
-.areaTable{
-    
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+.areaTable {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode";
     font-size: 13pt;
     width: 70%;
     table-layout: auto;
@@ -52,7 +53,7 @@
         text-align: left;
     }
 
-    .name{
+    .name {
         min-width: 50px;
     }
 
@@ -64,62 +65,68 @@
         cursor: pointer;
         color: $tableBtn;
         font-size: 22pt;
-    } 
-    
+    }
+
     @media (max-width: $desktop_xsm) {
-        
-        td, th {
+        td,
+        th {
             font-size: 14px;
         }
         .btnDelete {
-            
             font-size: 20pt;
-        } 
-        
+        }
     }
-    
+
     @media (max-width: $mobile) {
-        
-        td, th {
+        td,
+        th {
             font-size: 12px;
         }
         .btnDelete {
-            
             font-size: 17pt;
-        } 
-        
+        }
     }
-    
-    
-
-
 }
 
 .btnBackHome {
     margin: 40px 0px;
+    @media (max-width: $desktop_xsm) {
+        height: 30px;
+        font-size: 10px;
+        width: 120px;
+        padding: 0;
+    }
+
+    @media (max-width: $mobile) {
+        height: 28px;
+        font-size: 8px;
+        font-weight: 700;
+        width: 80px;
+        padding: 0;
+    }
+}
+.btnAdd {
+    border-radius: 5px;
+    height: 38px;
+
+    @media (max-width: $desktop_xsm) {
+        height: 25px;
+        font-size: 10px;
+        width: 100px;
+        padding: 0;
+    }
+
+    @media (max-width: $mobile) {
+        height: 20px;
+        font-size: 8px;
+        font-weight: 700;
+        width: 80px;
+        padding: 0;
+    }
 }
 
 .textfield {
-
-    @media (max-width: $mobile) {
-        
-        input {
-            height: 25px;
-            padding: 0px 10px;
-            font-size: 10px;
-        }
-        label {
-            height: 36px;
-            top: -13px;
-            font-size: 0.8em;
-        }
-        label[data-shrink="true"] {
-            top: 0
-          }
-    }
-
     @media (max-width: $desktop_xsm) {
-        
         input {
             height: 25px;
             padding: 0px 10px;
@@ -131,9 +138,22 @@
             font-size: 0.8em;
         }
         label[data-shrink="true"] {
-            top: 0
-          }
+            top: 0;
+        }
     }
-    
+    @media (max-width: $mobile) {
+        input {
+            height: 25px;
+            padding: 0px 10px;
+            font-size: 10px;
+        }
+        label {
+            height: 36px;
+            top: -13px;
+            font-size: 0.8em;
+        }
+        label[data-shrink="true"] {
+            top: 0;
+        }
+    }
 }
-

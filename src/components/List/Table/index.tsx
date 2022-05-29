@@ -1,88 +1,87 @@
 import { TypeClientsList } from "types/TypeClients";
-import Link from 'next/link'
+import Link from "next/link";
 import Thead from "../Thead";
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import EditIcon from '@mui/icons-material/Edit';
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import EditIcon from "@mui/icons-material/Edit";
 import { useContext, useState } from "react";
 import { ClientsContext } from "common/context/ClientsContext";
-import styles from './Table.module.scss'
-import DatePicker from "react-datepicker"
-import 'react-datepicker/dist/react-datepicker.css'
-import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import styles from "./Table.module.scss";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 
 interface Props {
-    children: TypeClientsList
+    children: TypeClientsList;
 }
 
+function Table({ children }: Props) {
+    const list = children;
+    const { handleNewVisit, customInterval } = useContext(ClientsContext);
+    const [startDate, setStartDate] = useState(new Date());
 
-function Table({children}: Props) {
-
-    const list = children
-    const {handleNewVisit, customInterval} = useContext(ClientsContext) 
-    const [startDate, setStartDate] = useState(new Date())
-
-    return ( 
-
-        
-
+    return (
         <table className={styles.generalTable}>
-
-            <Thead/>
+            <Thead />
             <tbody>
-                                
-                {list.map(item => {
-
+                {list.map((item) => {
                     return (
-                        <tr key={item.id} className={_handleSelectClass(item.lastVisit, item.interval, customInterval)}>
+                        <tr
+                            key={item.id}
+                            className={_handleSelectClass(
+                                item.lastVisit,
+                                item.interval,
+                                customInterval
+                            )}
+                        >
+                            <td>{item.name}</td>
+
+                            <td>{item.lastVisit}</td>
+
+                            <td>{item.interval}</td>
 
                             <td>
-                                {item.name}
+                                {_handleNextVisit(
+                                    item.lastVisit,
+                                    item.interval
+                                )}
                             </td>
 
                             <td>
-                                {item.lastVisit}
+                                {
+                                    <CheckCircleIcon
+                                        className={styles.btnToday}
+                                        onClick={() =>
+                                            handleNewVisit(item.name)
+                                        }
+                                    />
+                                }
                             </td>
 
                             <td>
-                                {item.interval}
-                            </td>
-
-                            <td>
-                                {_handleNextVisit(item.lastVisit, item.interval)}
-                                
-                            </td>
-
-                            <td>
-                                {<CheckCircleIcon className={styles.btnToday} onClick={() =>handleNewVisit(item.name)}/>}                  
-                                
-                            </td>
-
-                            <td>
-                                                                 
-                                <DatePicker customInput={<CalendarMonthOutlinedIcon/>} className={styles.btnToday} selected={startDate} onChange={(date)=> handleNewVisit(item.name, date.toString())}>
-                                </DatePicker>                                
-                                
+                                <DatePicker
+                                    customInput={<CalendarMonthOutlinedIcon />}
+                                    className={styles.btnToday}
+                                    selected={startDate}
+                                    onChange={(date) =>
+                                        handleNewVisit(
+                                            item.name,
+                                            date.toString()
+                                        )
+                                    }
+                                ></DatePicker>
                             </td>
 
                             <td>
                                 <Link href={`/edit/${item.id}`}>
-                                    <EditIcon className={styles.btnToday}/>
+                                    <EditIcon className={styles.btnToday} />
                                 </Link>
-                                
                             </td>
-                            
-
                         </tr>
-                    )
-                } )}
-
+                    );
+                })}
             </tbody>
-
         </table>
-
-
     );
-
 }
 
 export default Table;
@@ -92,9 +91,8 @@ function fixDate(lVisit: string) {
     const month = lVisit.slice(3, 5);
     const year = lVisit.slice(6, 10);
     const date = `${year}/${month}/${day}`;
-    return date
+    return date;
 }
-
 
 function _handleNextVisit(lVisit: string, freq: number) {
     const date = fixDate(lVisit);
@@ -129,17 +127,16 @@ function _handleClassDate(lastVisit, freq) {
     }
 }
 
-
 function _handleIntervalClass(lastVisit, freq, intervalSelec) {
-    const date = fixDate(lastVisit)
+    const date = fixDate(lastVisit);
 
     const convDate = new Date(date);
     convDate.setDate(convDate.getDate() + Number(freq));
     const today = new Date();
 
-    const diff = today.getTime() - convDate.getTime(); 
-    const days = Math.ceil(diff / (1000 * 60 * 60 * 24)); 
-    
+    const diff = today.getTime() - convDate.getTime();
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+
     if (days < -intervalSelec) {
         return styles.hideItem;
     } else if (days >= 0) {

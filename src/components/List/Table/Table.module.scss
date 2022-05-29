@@ -1,42 +1,43 @@
-@import 'styles/var';
-@import 'styles/breakpoints';
+@import "styles/var";
+@import "styles/breakpoints";
 
 .generalTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
 
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  table-layout: fixed;
-  
-  td, th {
+    td,
+    th {
+        border: 1px solid rgb(221, 221, 221);
+        padding: 5px;
+        text-align: center;
+    }
 
-    border: 1px solid rgb(221, 221, 221);
-    padding: 5px;
-    text-align: center;
-  }
+    tr {
+        transition: background-color 700ms;
+        &:nth-child(even) {
+            background-color: $backGroundTable;
+        }
+        &:hover {
+            background-color: $hoverTable;
+        }
+    }
 
-  tr {
-
-    transition: background-color 700ms;
-    &:nth-child(even){background-color: rgba(74, 136, 244, 0.116);} 
-    &:hover {background-color: rgba(1, 64, 181, 0.262);}        
-  }
-  
     @media (max-width: $desktop_xsm) {
-          
-        td, th {
+        td,
+        th {
             font-size: 12px;
-        }        
+        }
     }
 
     @media (max-width: $mobile) {
-          
-        td, th {
+        td,
+        th {
             font-size: 8px;
-        }                
-    }   
+        }
+    }
 }
-
 
 .late {
     color: rgba(231, 31, 31, 0.793);
@@ -47,14 +48,14 @@
 }
 
 .week {
-    color: rgba(2, 84, 215, 0.658);
+    color: #0254d7a8;
     font-weight: 600;
     .btnToday {
-        color: rgba(58, 116, 208, 0.525);
+        color: #3a74d086;
     }
 }
-.hideItem{    
-    display: none;    
+.hideItem {
+    display: none;
 }
 
 .btnToday {
@@ -64,59 +65,10 @@
 
     @media (max-width: $desktop_xsm) {
         font-size: 18pt;
-                   
     }
 
     @media (max-width: $mobile) {
         font-size: 12pt;
-                
-    }   
-} 
-
-
-
-
-
-
-  /*
-  rgb(5, 143, 5);
-
-  rgba(58, 116, 208, 0.845)
-  
-  
-  .datePickerInput {
-    border: none;
-
-    &:focus {
-        outline: none;
     }
+}
 
-    &::-webkit-datetime-edit {
-        display: none;
-    }
-
-    &::-webkit-calendar-picker-indicator {
-        text-align: center;
-        width: 17pt;
-        height: 17pt;
-        background: url('/calendar.png') no-repeat;
-        cursor: pointer;
-        background-size: 100%;
-
-    }
-
-     width: 22px;
-    height: 22px;
-    border-color: rgba(255, 255, 255, 0);
-    background: url('/calendar.png') no-repeat;
-    background-size: 26px;
-    cursor: pointer;
-    font-size: 0.01pt;    
-    margin-bottom: 5px;
-    &:focus-visible{
-        border: none;
-        outline: none;
-        height: 26px;
-               
-    }
-  */

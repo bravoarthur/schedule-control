@@ -1,6 +1,5 @@
-@import 'styles/var';
-@import 'styles/breakpoints';
-
+@import "styles/var";
+@import "styles/breakpoints";
 
 .editContainer {
     display: flex;
@@ -8,58 +7,55 @@
     align-items: center;
     margin: auto;
     gap: 20px;
-    
+
     h3 {
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
-        color: rgb(14, 103, 192);
+        font-family: "Trebuchet MS", "Lucida Sans Unicode";
+        color: $title;
         font-size: 20px;
     }
 
     @media (max-width: $desktop_xsm) {
-        width: 600px;        
+        width: 600px;
         h3 {
             font-size: 14px;
-        }        
+        }
     }
-    
+
     @media (max-width: $mobile) {
-        width: 300px;       
+        width: 300px;
         h3 {
             font-size: 13px;
-        }                
-    }   
-
+        }
+    }
 }
-
 
 .divInput {
     display: flex;
     min-width: 600px;
     justify-content: center;
 
-    h4{
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+    h4 {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode";
         font-size: 18px;
         width: 18%;
     }
 
     @media (max-width: $desktop_xsm) {
-        min-width: 400px;  
+        min-width: 400px;
 
         h4 {
             font-size: 14px;
-            width: 20%
-        }        
+            width: 20%;
+        }
     }
-    
+
     @media (max-width: $mobile) {
         min-width: 350px;
         h4 {
             font-size: 12px;
-            width: 20%
-        }                
-    }   
-
+            width: 20%;
+        }
+    }
 }
 
 .divLastVisit {
@@ -71,28 +67,28 @@
         width: 60%;
         margin-left: 20px;
     }
-    
-    h4{
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+
+    h4 {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode";
         font-size: 18px;
         margin: 5px 0;
     }
 
     @media (max-width: $desktop_xsm) {
-        min-width: 400px;  
+        min-width: 400px;
 
         h4 {
             font-size: 14px;
-        }        
+        }
     }
-    
+
     @media (max-width: $mobile) {
-        min-width: 350px; 
-                
+        min-width: 350px;
+
         h4 {
             font-size: 12px;
-        }                
-    }   
+        }
+    }
 }
 
 .divNotes {
@@ -101,97 +97,90 @@
     min-width: 600px;
     align-items: flex-start;
 
-    h4{
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
-        font-size: 18px;       
+    h4 {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode";
+        font-size: 18px;
     }
 
     @media (max-width: $desktop_xsm) {
-        min-width: 350px;  
+        min-width: 350px;
 
         h4 {
             font-size: 14px;
-        }        
+        }
     }
-    
+
     @media (max-width: $mobile) {
-        min-width: 320px;  
+        min-width: 320px;
         h4 {
             font-size: 12px;
-        }                
-    }   
-
+        }
+    }
 }
 
 .divButton {
-
     display: flex;
     justify-content: space-between;
     width: 600px;
 
     @media (max-width: $desktop_xsm) {
-        width: 400px;      
+        width: 400px;
     }
-    
+
     @media (max-width: $mobile) {
-        width: 300px                      
-              
-    }       
+        width: 300px;
+    }
 }
 
-
 .visitTable {
-
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+    font-family: "Trebuchet MS", "Lucida Sans Unicode";
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
     max-width: 300px;
-          
-    th {        
+
+    th {
         padding: 5px;
         font-size: 16px;
-        font-weight: 550;        
+        font-weight: 550;
         text-align: center;
         background-color: rgb(61, 147, 233);
         color: white;
-        }
-       
+    }
+
     td {
-  
-      border: 1px solid rgb(221, 221, 221);
-      padding: 5px;
-      text-align: center;
+        border: 1px solid rgb(221, 221, 221);
+        padding: 5px;
+        text-align: center;
     }
-  
+
     tr {
-  
-      transition: all 800ms;
-      &:nth-child(even){background-color: rgba(74, 136, 244, 0.116);} 
-      &:hover {background-color: rgba(1, 64, 181, 0.262);}        
+        transition: all 800ms;
+        &:nth-child(even) {
+            background-color: $backGroundTable;
+        }
+        &:hover {
+            background-color: $hoverTable;
+        }
     }
-      
 }
 
 .btnDelete {
     cursor: pointer;
-    color: #aaa;
+    color: $tableBtn;
     font-size: 22pt;
 }
 
-
 .btn {
-
     width: 150px;
     @media (max-width: $desktop_xsm) {
         width: 110px;
-        font-size: 9px;         
+        font-size: 9px;
     }
-    
+
     @media (max-width: $mobile) {
         width: 90px;
         font-size: 7px;
-        padding: 3px 5px;                                  
-    }   
+        padding: 3px 5px;
+    }
 }
-

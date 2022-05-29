@@ -1,5 +1,5 @@
-@import 'styles/var';
-@import 'styles/breakpoints';
+@import "styles/var";
+@import "styles/breakpoints";
 
 .addContainer {
     display: flex;
@@ -7,35 +7,33 @@
     align-items: center;
     max-width: 1000px;
     margin: auto;
-    
+
     h3 {
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
-        color: rgb(14, 103, 192);
+        font-family: "Trebuchet MS", "Lucida Sans Unicode";
+        color: $title;
         font-size: 20px;
-       }
+    }
 
     @media (max-width: $desktop_xsm) {
-        max-width: 700px;        
+        max-width: 700px;
         h3 {
             font-size: 14px;
-        }        
+        }
     }
-    
+
     @media (max-width: $mobile) {
-        max-width: 500px;        
+        max-width: 500px;
         h3 {
             font-size: 12px;
-        }                
-    }   
-
+        }
+    }
 }
 
-.addForm{
+.addForm {
     display: flex;
     flex-direction: column;
     gap: 18px;
     align-items: center;
-
 }
 
 .divInput {
@@ -45,16 +43,12 @@
 
     @media (max-width: $desktop_xsm) {
         min-width: 250px;
-        width: 450px;     
-        
-          
+        width: 450px;
     }
-    
-    @media (max-width: $mobile) {        
-        width: 250px;
-                                 
-    }   
 
+    @media (max-width: $mobile) {
+        width: 250px;
+    }
 }
 
 .buttonHome {

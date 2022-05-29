@@ -1,2 +1,1 @@
-
-export type TypeArea = Array<string>
+export type TypeArea = Array<string>;

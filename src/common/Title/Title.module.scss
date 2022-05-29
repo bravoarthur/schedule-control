@@ -1,38 +1,29 @@
-@import 'styles/var';
-@import 'styles/breakpoints';
+@import "styles/var";
+@import "styles/breakpoints";
 
 .divTitle {
     display: flex;
     justify-content: center;
     border-bottom: solid 2.5px rgba(129, 167, 227, 0.992);
     width: 100%;
-    
-    
+
     h1 {
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
-        color: rgb(14, 103, 192);
+        font-family: "Trebuchet MS", "Lucida Sans Unicode";
+        color: $title;
         font-size: 35px;
         margin: 15px 0;
-        
     }
 
     @media (max-width: $desktop_xsm) {
-        
-        h1{
+        h1 {
             font-size: 25px;
         }
     }
 
     @media (max-width: $mobile) {
-       
-        h1{
+        h1 {
             font-size: 20px;
-            margin: 5px 0;            
+            margin: 5px 0;
         }
     }
-
-    
 }
-
-/*
-background-color: rgba(129, 166, 227, 0.205);*/

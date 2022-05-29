@@ -1,18 +1,10 @@
-
-import styles from './Title.module.scss'
-
+import styles from "./Title.module.scss";
 
 function Title() {
-
-
-    return ( 
-
+    return (
         <div className={styles.divTitle}>
             <h1> Scheduling Control </h1>
-
         </div>
-
-
     );
 }
 
