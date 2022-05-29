@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     border-bottom: solid 2.5px rgba(129, 167, 227, 0.992);
+    width: 100%;
     
     
     h1 {
@@ -23,10 +24,10 @@
     }
 
     @media (max-width: $mobile) {
-        
+       
         h1{
             font-size: 20px;
-            margin: 5px 0;
+            margin: 5px 0;            
         }
     }
 

@@ -1,8 +1,11 @@
+@import 'styles/var';
+@import 'styles/breakpoints';
+
+
 .editContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1000px;
     margin: auto;
     gap: 20px;
     
@@ -10,8 +13,24 @@
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
         color: rgb(14, 103, 192);
         font-size: 20px;
-       }
+    }
+
+    @media (max-width: $desktop_xsm) {
+        width: 600px;        
+        h3 {
+            font-size: 14px;
+        }        
+    }
+    
+    @media (max-width: $mobile) {
+        width: 300px;       
+        h3 {
+            font-size: 13px;
+        }                
+    }   
+
 }
+
 
 .divInput {
     display: flex;
@@ -23,20 +42,57 @@
         font-size: 18px;
         width: 18%;
     }
+
+    @media (max-width: $desktop_xsm) {
+        min-width: 400px;  
+
+        h4 {
+            font-size: 14px;
+            width: 20%
+        }        
+    }
+    
+    @media (max-width: $mobile) {
+        min-width: 350px;
+        h4 {
+            font-size: 12px;
+            width: 20%
+        }                
+    }   
+
 }
 
 .divLastVisit {
     display: flex;
     min-width: 600px;
-    justify-content: flex-start;
-    margin-left: 130px;
+    justify-content: center;
+
+    .h4LastVisit {
+        width: 60%;
+        margin-left: 20px;
+    }
     
     h4{
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
         font-size: 18px;
-        width: 20%;
         margin: 5px 0;
     }
+
+    @media (max-width: $desktop_xsm) {
+        min-width: 400px;  
+
+        h4 {
+            font-size: 14px;
+        }        
+    }
+    
+    @media (max-width: $mobile) {
+        min-width: 350px; 
+                
+        h4 {
+            font-size: 12px;
+        }                
+    }   
 }
 
 .divNotes {
@@ -49,15 +105,40 @@
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
         font-size: 18px;       
     }
+
+    @media (max-width: $desktop_xsm) {
+        min-width: 350px;  
+
+        h4 {
+            font-size: 14px;
+        }        
+    }
+    
+    @media (max-width: $mobile) {
+        min-width: 320px;  
+        h4 {
+            font-size: 12px;
+        }                
+    }   
+
 }
 
 .divButton {
 
     display: flex;
-    gap: 50px;
+    justify-content: space-between;
+    width: 600px;
 
-
+    @media (max-width: $desktop_xsm) {
+        width: 400px;      
+    }
+    
+    @media (max-width: $mobile) {
+        width: 300px                      
+              
+    }       
 }
+
 
 .visitTable {
 
@@ -99,4 +180,18 @@
 }
 
 
+.btn {
+
+    width: 150px;
+    @media (max-width: $desktop_xsm) {
+        width: 110px;
+        font-size: 9px;         
+    }
+    
+    @media (max-width: $mobile) {
+        width: 90px;
+        font-size: 7px;
+        padding: 3px 5px;                                  
+    }   
+}
 

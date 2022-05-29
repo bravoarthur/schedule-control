@@ -65,7 +65,19 @@
         color: $tableBtn;
         font-size: 22pt;
     } 
-
+    
+    @media (max-width: $desktop_xsm) {
+        
+        td, th {
+            font-size: 14px;
+        }
+        .btnDelete {
+            
+            font-size: 20pt;
+        } 
+        
+    }
+    
     @media (max-width: $mobile) {
         
         td, th {
@@ -77,26 +89,8 @@
         } 
         
     }
-
-    /*@media (max-width: $desktop_xsm) {
-        
-        tr {
-            height: 25px;
-            padding: 0px 10px;
-            font-size: 10px;
-        }
-        label {
-            height: 36px;
-            top: -13px;
-            font-size: 0.8em;
-        }
-        label[data-shrink="true"] {
-            top: 0
-          }
-    }*/
-
-
-
+    
+    
 
 
 }

@@ -9,8 +9,8 @@ function MyApp({ Component, pageProps }) {
   return (
 
     <>
-      <Head>
-        <title>Schedule Control</title>        
+      <Head>      
+        <title>Schedule Control</title>
         <link rel="icon" href="/favicon.png" />
       </Head>
       <AreaProvider>

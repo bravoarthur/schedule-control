@@ -148,7 +148,7 @@ function EditPage(props: TClient ) {
 
             <div className={style.divLastVisit}>
                 <h4>Last Visit: </h4>
-                <h4>{lastVisit}</h4>                          
+                <h4 className={style.h4LastVisit}>{lastVisit}</h4>                          
             </div>     
 
 
@@ -167,13 +167,13 @@ function EditPage(props: TClient ) {
 
 
             <div className={style.divButton}>
-                <Button variant="contained" sx={{width: '150px', borderRadius: '12px'}} onClick={_handleSaveClient}>Save Changes</Button>
+                <Button variant="contained" className={style.btn} sx={{borderRadius: '7px'}} onClick={_handleSaveClient}>Save Changes</Button>
 
                 <NextLink passHref href='/'>
-                  <Button variant="outlined" sx={{width: '150px', height: '40px', borderRadius: '8px', ":hover": {backgroundColor: 'rgb(128 173 217 / 14%)'}}}>Home</Button>
+                  <Button variant="outlined" className={style.btn} sx={{ borderRadius: '8px', ":hover": {backgroundColor: 'rgb(128 173 217 / 14%)'}}}>Home</Button>
                 </NextLink> 
 
-                <Button sx={{width: '150px', backgroundColor: '#f50057', borderRadius: '12px'}} variant="contained" color="error" onClick={_handleDeleteClient}>Delete Client</Button>
+                <Button className={style.btn} sx={{ backgroundColor: '#f50057', borderRadius: '7px'}} variant="contained" color="error" onClick={_handleDeleteClient}>Delete Client</Button>
             </div>
 
             <div>
