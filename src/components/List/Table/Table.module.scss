@@ -40,18 +40,18 @@
 }
 
 .late {
-    color: rgba(231, 31, 31, 0.793);
+    color: $fontLate;
     font-weight: 550;
     .btnToday {
-        color: rgba(218, 47, 47, 0.544);
+        color: $btnLate;
     }
 }
 
 .week {
-    color: #0254d7a8;
+    color: $fontWeek;
     font-weight: 600;
     .btnToday {
-        color: #3a74d086;
+        color: $btnWeek;
     }
 }
 .hideItem {

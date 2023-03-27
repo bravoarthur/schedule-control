@@ -1,8 +1,9 @@
 import GeneralList from "components/List/GeneralList";
+import styles from './Index.module.scss'
 
 export default function Home() {
     return (
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div  className={styles.home}>
             <GeneralList />
         </div>
     );
